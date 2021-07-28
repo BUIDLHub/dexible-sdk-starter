@@ -1,0 +1,23 @@
+{
+  "name": "dexible-sdk-starter",
+  "version": "1.0.0",
+  "description": "A starter template for interacting with Dexible SDK library",
+  "main": "dist/index.js",
+  "repository": "https://github.com/buidlhub/dexible-sdk-starter",
+  "author": "mdcoon@buidlhub.com",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "yarn clean && tsc --build",
+    "clean": "rimraf dist",
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2"
+  },
+  "dependencies": {
+    "dexible-sdk": "^0.1.9",
+    "dotenv": "^10.0.0",
+    "ethers": "^5.4.1"
+  }
+}
