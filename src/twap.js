@@ -9,7 +9,7 @@ const init = async ({sdk, orderFactory}) => {
     console.log("Looking up tokens");
     let inToken = await sdk.token.lookup(TOKEN_IN);
     let outToken = await sdk.token.lookup(TOKEN_OUT);
-    console.log("InToken", inToken.symbol);
+    console.log("InToken", inToken, "OutToken", outToken);
 
     let config = {
         tokenIn: inToken,
@@ -37,9 +37,9 @@ const init = async ({sdk, orderFactory}) => {
                     randomizeDelay: true //if false, will run each round after fixed delay period
                 }),
                 new Policies.PriceBounds( {
-                    basePrice: new Price({
-                        inAmount: 1, //weth
-                        outAmount: 2000, //dai
+                    basePrice: Price.unitsToPrice({
+                        inUnits: 1, //weth
+                        outUnits: 2000, //dai
                         inToken,
                         outToken
                     }),
