@@ -108,10 +108,10 @@ const main = async () => {
                 if(sdkConfig.automaticSpendApproval) {
                     if(sdkConfig.useInfiniteSpendApproval) {
                         console.log("Approving infinite spend on input token...");
-                        await sdk.token.increaseSpending(tokenIn, ethers.constants.MaxUint256);
+                        await sdk.token.increaseSpending({token: tokenIn, amount: ethers.constants.MaxUint256});
                     } else {
                         console.log("Approving spend allowance for input token: ", amountIn.toString());
-                        await sdk.token.increaseSpending(tokenIn, amountIn);
+                        await sdk.token.increaseSpending({token: tokenIn, amount: amountIn});
                     }
                 } else {
                     throw new Error("Insufficient spend allowance for input token, and automaticSpendApproval not set in sdkConfig");
